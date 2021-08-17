@@ -1,16 +1,26 @@
+import { useEffect, useState } from "react";
+import { getFoods } from "./api/foodsApi";
+
 type Food = {
+  id: number;
   name: string;
   quantity: number;
   minimumQuality: number;
   type: string;
 };
 
-const items: Food[] = [
-  { name: "Carrot", quantity: 10, minimumQuality: 2, type: "Vegetable" },
-  { name: "Potato", quantity: 20, minimumQuality: 2, type: "Vegetable" },
-];
-
 export function App() {
+  const [foods, setFoods] = useState<Food[]>([]);
+  useEffect(() => {
+    async function fetchData() {
+      const response = await getFoods();
+      if (!response.ok) throw new Error("call to get foods failed");
+      const items = await response.json();
+      setFoods(items);
+    }
+    fetchData();
+  });
+
   return (
     <>
       <h1>Pantry Manager</h1>
@@ -24,14 +34,15 @@ export function App() {
           </tr>
         </thead>
         <tbody>
-          {items.map((food) => (
-            <tr key={food.name}>
-              <td>{food.name}</td>
-              <td>{food.type}</td>
-              <td>{food.minimumQuality}</td>
-              <td>{food.quantity}</td>
-            </tr>
-          ))}
+          {foods &&
+            foods.map((food) => (
+              <tr key={food.id}>
+                <td>{food.name}</td>
+                <td>{food.type}</td>
+                <td>{food.minimumQuality}</td>
+                <td>{food.quantity}</td>
+              </tr>
+            ))}
         </tbody>
       </table>
     </>

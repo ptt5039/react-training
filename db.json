@@ -1,0 +1,25 @@
+{
+  "foods": [
+    {
+      "id": 1,
+      "name": "Carrot",
+      "quantity": 10,
+      "minimumQuality": 5,
+      "type": "Veggie"
+    },
+    {
+      "id": 2,
+      "name": "Potato",
+      "quantity": 20,
+      "minimumQuality": 5,
+      "type": "Veggie"
+    },
+    {
+      "name": "Apple",
+      "quantity": 15,
+      "minimumQuality": 5,
+      "type": "Fruit",
+      "id": 3
+    }
+  ]
+}
