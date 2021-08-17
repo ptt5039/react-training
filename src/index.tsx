@@ -7,5 +7,6 @@ import { App } from "./App";
 // class - className
 // for - htmlFor
 // inline styles are strings - inline styles are objects
+// <!-- comment --> - /* comment */
 
 render(<App />, document.getElementById("root"));
