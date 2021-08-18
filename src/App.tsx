@@ -1,8 +1,8 @@
-import { create } from "cypress/types/lodash";
 import { useEffect, useState } from "react";
 import { getFoods, deleteFood, createFood } from "./api/foodsApi";
 import { Input } from "./components/Input";
 import { Select } from "./components/Select";
+import { ToastContainer, toast } from "react-toastify";
 
 type Food = {
   id?: number;
@@ -35,6 +35,7 @@ export function App() {
     if (id) {
       // call delete food
       await deleteFood(id);
+      toast.success("Food has been deleted!");
       // set new foods
       setFoods(foods.filter((food) => food.id !== id));
     }
@@ -53,22 +54,31 @@ export function App() {
 
   async function onSubmit(e: React.FormEvent<HTMLFormElement>) {
     e.preventDefault();
-    const returnFood = await createFood(newFood);
-    setFoods([...foods, returnFood]);
+    try {
+      const returnFood = await createFood(newFood);
+      setFoods([...foods, returnFood]);
+      toast.success(returnFood.name + " has been created!");
+      setNewFood(emptyFood);
+    } catch (error) {
+      toast.error("Can't create");
+    }
   }
 
   return (
     <>
-      <h1>Pantry Manager</h1>
+      <ToastContainer />
+      <h1 className="text-center">Pantry Manager</h1>
 
-      <form onSubmit={onSubmit}>
+      <form className="row mb-3" onSubmit={onSubmit}>
         <Input
+          className="col-md-3"
           onChange={onChangeHandler}
           value={newFood.name}
           label="Name"
           id="name"
         />
         <Input
+          className="col-md-3"
           onChange={onChangeHandler}
           value={newFood.quantity.toString()}
           label="Quantity"
@@ -76,6 +86,7 @@ export function App() {
           type="number"
         />
         <Input
+          className="col-md-3"
           onChange={onChangeHandler}
           value={newFood.minimumQuality.toString()}
           label="Minimum Quality"
@@ -83,6 +94,7 @@ export function App() {
           type="number"
         />
         <Select
+          className="col-md-3"
           value={newFood.type}
           onChange={onChangeHandler}
           label="Type"
@@ -93,30 +105,41 @@ export function App() {
             { label: "Fruit", value: "Fruit" },
           ]}
         />
-        <button type="submit">Create</button>
+        <div className="col-12 float-end">
+          <input
+            className="btn btn-primary"
+            type="submit"
+            value="Create Food"
+          />
+        </div>
       </form>
 
-      <table>
+      <table className="table table-striped">
         <thead>
           <tr>
-            <th></th>
             <th>Name</th>
             <th>Type</th>
             <th>Minimum Quality</th>
             <th>Quality</th>
+            <th></th>
           </tr>
         </thead>
         <tbody>
           {foods &&
             foods.map((food) => (
               <tr key={food.id}>
-                <td>
-                  <button onClick={() => deleteClick(food.id)}>Delete</button>
-                </td>
                 <td>{food.name}</td>
                 <td>{food.type}</td>
                 <td>{food.minimumQuality}</td>
                 <td>{food.quantity}</td>
+                <td>
+                  <button
+                    className="btn btn-danger"
+                    onClick={() => deleteClick(food.id)}
+                  >
+                    Delete
+                  </button>
+                </td>
               </tr>
             ))}
         </tbody>

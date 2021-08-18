@@ -8,12 +8,13 @@ type SelectProps = {
   options: SelectOption[];
   value: string;
   onChange: React.ChangeEventHandler<HTMLSelectElement>;
+  className: string;
 };
 
 export function Select(props: SelectProps) {
-  const { label, id, options, value, onChange } = props;
+  const { label, id, options, value, onChange, className } = props;
   return (
-    <div>
+    <div className={className}>
       <label htmlFor={id}>{label}</label>
       <br />
       <select onChange={onChange} id={id} value={value}>
