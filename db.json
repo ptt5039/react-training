@@ -1,13 +1,6 @@
 {
   "foods": [
     {
-      "id": 1,
-      "name": "Carrot",
-      "quantity": 10,
-      "minimumQuality": 5,
-      "type": "Veggie"
-    },
-    {
       "id": 2,
       "name": "Potato",
       "quantity": 20,
@@ -20,6 +13,20 @@
       "minimumQuality": 5,
       "type": "Fruit",
       "id": 3
+    },
+    {
+      "name": "Rice",
+      "quantity": 15,
+      "minimumQuality": 5,
+      "type": "Grain",
+      "id": 4
+    },
+    {
+      "name": "Orange",
+      "quantity": "20",
+      "minimumQuality": "10",
+      "type": "Fruit",
+      "id": 5
     }
   ]
 }

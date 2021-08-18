@@ -1,14 +1,23 @@
 type InputProps = {
   label: string;
   id: string;
+  value: string;
+  onChange: React.ChangeEventHandler<HTMLInputElement>;
+  type?: "text" | "number" | "email" | "phone" | "date";
 };
 
-export function Input(props: InputProps) {
+export function Input({
+  label,
+  id,
+  value,
+  onChange,
+  type = "text",
+}: InputProps) {
   return (
     <div>
-      <label htmlFor={props.id}>{props.label}</label>
+      <label htmlFor={id}>{label}</label>
       <br />
-      <input id={props.id} type="text" />
+      <input onChange={onChange} value={value} id={id} type={type} />
     </div>
   );
 }

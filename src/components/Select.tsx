@@ -6,15 +6,18 @@ type SelectProps = {
   label: string;
   id: string;
   options: SelectOption[];
+  value: string;
+  onChange: React.ChangeEventHandler<HTMLSelectElement>;
 };
 
 export function Select(props: SelectProps) {
+  const { label, id, options, value, onChange } = props;
   return (
     <div>
-      <label htmlFor={props.id}>{props.label}</label>
+      <label htmlFor={id}>{label}</label>
       <br />
-      <select id={props.id}>
-        {props.options.map((item: SelectOption) => (
+      <select onChange={onChange} id={id} value={value}>
+        {options.map((item: SelectOption) => (
           <option key={item.label} value={item.value}>
             {item.label}
           </option>
