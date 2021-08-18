@@ -45,7 +45,7 @@
     {
       "name": "Orange",
       "quantity": "15",
-      "minimumQuality": "6",
+      "minimumQuality": "5",
       "type": "Fruit",
       "id": 10
     }
