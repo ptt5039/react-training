@@ -1,9 +1,8 @@
 import { useEffect, useState } from "react";
-import { getFoods, deleteFood, createFood } from "./api/foodsApi";
-import { Input } from "./components/Input";
-import { Select } from "./components/Select";
-import { ToastContainer, toast } from "react-toastify";
+import { getFoods, deleteFood } from "./api/foodsApi";
+import { toast } from "react-toastify";
 import { Food } from "./types";
+import { Link } from "react-router-dom";
 
 export function App() {
   const [foods, setFoods] = useState<Food[]>([]);
@@ -30,36 +29,37 @@ export function App() {
   return (
     <>
       <h1 className="text-center">Pantry Manager</h1>
-      <table className="table table-striped">
-        <thead>
-          <tr>
-            <th>Name</th>
-            <th>Type</th>
-            <th>Minimum Quality</th>
-            <th>Quality</th>
-            <th></th>
-          </tr>
-        </thead>
-        <tbody>
-          {foods &&
-            foods.map((food) => (
-              <tr key={food.id}>
-                <td>{food.name}</td>
-                <td>{food.type}</td>
-                <td>{food.minimumQuality}</td>
-                <td>{food.quantity}</td>
-                <td>
+      <p>
+        <Link className="btn btn-success" to="/food">
+          Create Food
+        </Link>
+      </p>
+      <div className="d-flex justify-content-around">
+        {foods &&
+          foods.map((food) => (
+            <div className="card" key={food.id}>
+              <div className="card-body">
+                <h5 className="card-title">{food.name}</h5>
+                <h6 className="card-subtitle mb-2 text-muted">{food.type}</h6>
+                <p className="card-text">Quantity: {food.quantity}</p>
+                <p className="card-text">
+                  Min Quantity: {food.minimumQuanlity}
+                </p>
+                <div className="d-flex justify-content-around">
                   <button
                     className="btn btn-danger"
                     onClick={() => deleteClick(food.id)}
                   >
                     Delete
                   </button>
-                </td>
-              </tr>
-            ))}
-        </tbody>
-      </table>
+                  <Link to={`/food/${food.id}`} className="btn btn-secondary">
+                    Edit
+                  </Link>
+                </div>
+              </div>
+            </div>
+          ))}
+      </div>
     </>
   );
 }

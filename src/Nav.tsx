@@ -9,9 +9,6 @@ export function Nav() {
         <li>
           <Link to="/about">About</Link>
         </li>
-        <li>
-          <Link to="/create">Create Food</Link>
-        </li>
       </ul>
     </nav>
   );

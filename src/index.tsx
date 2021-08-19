@@ -3,10 +3,10 @@ import { App } from "./App";
 import "bootstrap/dist/css/bootstrap.min.css";
 import "react-toastify/dist/ReactToastify.css";
 import { BrowserRouter, Route } from "react-router-dom";
-import { About } from "./components/About";
 import { Nav } from "./Nav";
 import { FoodForm } from "./FoodForm";
 import { ToastContainer } from "react-toastify";
+import { About } from "./About";
 
 // first react component
 
@@ -21,7 +21,10 @@ render(
     <ToastContainer />
     <BrowserRouter>
       <Nav />
-      <Route path="/create">
+      <Route path="/food" exact>
+        <FoodForm />
+      </Route>
+      <Route path="/food/:foodId">
         <FoodForm />
       </Route>
       <Route path="/about">

@@ -3,49 +3,49 @@
     {
       "id": 2,
       "name": "Potato",
-      "quantity": 20,
-      "minimumQuality": 5,
+      "quantity": "15",
+      "minimumQuanlity": "7",
       "type": "Veggie"
     },
     {
       "name": "Apple",
       "quantity": 15,
-      "minimumQuality": 5,
+      "minimumQuanlity": 5,
       "type": "Fruit",
       "id": 3
     },
     {
+      "id": 4,
       "name": "Rice",
-      "quantity": 15,
-      "minimumQuality": 5,
-      "type": "Grain",
-      "id": 4
+      "quantity": "20",
+      "minimumQuanlity": 5,
+      "type": "Grain"
     },
     {
       "name": "Brown Rice",
       "quantity": "10",
-      "minimumQuality": "5",
+      "minimumQuanlity": "5",
       "type": "Grain",
       "id": 6
     },
     {
       "name": "Dragon Fruit",
       "quantity": "10",
-      "minimumQuality": "2",
+      "minimumQuanlity": "2",
       "type": "Fruit",
       "id": 8
     },
     {
       "name": "Peach",
       "quantity": "15",
-      "minimumQuality": "5",
+      "minimumQuanlity": "5",
       "type": "Fruit",
       "id": 9
     },
     {
       "name": "Orange",
       "quantity": "15",
-      "minimumQuality": "5",
+      "minimumQuanlity": "5",
       "type": "Fruit",
       "id": 10
     }
