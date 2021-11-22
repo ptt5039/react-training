@@ -10,7 +10,7 @@ const emptyFood: Food = {
   name: "",
   quantity: 0,
   minimumQuanlity: 0,
-  type: "",
+  type: "Vegetable",
 };
 
 export function FoodForm() {

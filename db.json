@@ -1,16 +1,9 @@
 {
   "foods": [
     {
-      "id": 2,
-      "name": "Potato",
-      "quantity": "15",
-      "minimumQuanlity": "7",
-      "type": "Veggie"
-    },
-    {
       "name": "Apple",
-      "quantity": 15,
-      "minimumQuanlity": 5,
+      "quantity": "9",
+      "minimumQuanlity": "10",
       "type": "Fruit",
       "id": 3
     },
@@ -18,13 +11,13 @@
       "id": 4,
       "name": "Rice",
       "quantity": "20",
-      "minimumQuanlity": 5,
+      "minimumQuanlity": "50",
       "type": "Grain"
     },
     {
       "name": "Brown Rice",
-      "quantity": "10",
-      "minimumQuanlity": "5",
+      "quantity": "5",
+      "minimumQuanlity": "6",
       "type": "Grain",
       "id": 6
     },
@@ -43,11 +36,18 @@
       "id": 9
     },
     {
-      "name": "Orange",
-      "quantity": "15",
-      "minimumQuanlity": "5",
+      "name": "Grape",
+      "quantity": "50",
+      "minimumQuanlity": "60",
       "type": "Fruit",
-      "id": 10
+      "id": 11
+    },
+    {
+      "name": "Tomato",
+      "quantity": "5",
+      "minimumQuanlity": "10",
+      "type": "Vegetable",
+      "id": 12
     }
   ]
 }

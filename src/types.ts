@@ -5,3 +5,10 @@ export type Food = {
   minimumQuanlity: number;
   type: string;
 };
+
+export type UserContextType = {
+  name: string;
+  email: string;
+  role: "user" | "admin";
+  token: string;
+};
